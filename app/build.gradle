@@ -1,0 +1,121 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        applicationId "cn.xcion.habit"
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    /*************************************************************************************************/
+    signingConfigs {
+        release {
+            keyAlias 'xcion'
+            keyPassword 'XCION2021'
+            storeFile file('/keystore/release_signature.jks')
+            storePassword 'XCION2021'
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        android.applicationVariants.all { variant ->
+            variant.outputs.all {
+                outputFileName = "habit_${defaultConfig.versionName}_${productFlavors[0].name}.apk"
+            }
+        }
+    }
+
+    /*************************************************************************************************/
+    productFlavors {
+        //测试环境
+        uat {
+            flavorDimensions "versionCode"
+            buildConfigField "String", "BASE_URL", rootProject.ext.url.uatUrl
+            buildConfigField "boolean", "isProdDebug", "false"
+            applicationId "cn.xcion.habit"
+            manifestPlaceholders = [APP_NAME     : "海貝",
+                                    JPUSH_PKGNAME: applicationId,
+                                    JPUSH_APPKEY : "sdghjgjdienrofn358snldfn",
+                                    JPUSH_CHANNEL: "developer-default"]
+
+        }
+
+        //正式环境
+        prod {
+            flavorDimensions "versionCode"
+            buildConfigField "String", "BASE_URL", rootProject.ext.url.prodUrl
+            buildConfigField "boolean", "isProdDebug", "false"
+            applicationId "cn.xcion.habit"
+            manifestPlaceholders = [APP_NAME     : "海貝",
+                                    JPUSH_PKGNAME: applicationId,
+                                    JPUSH_APPKEY : "sdghjgjdienrofn358snldfn",
+                                    JPUSH_CHANNEL: "developer-default"]
+
+        }
+
+        //本地环境
+        local {
+            flavorDimensions "versionCode"
+            manifestPlaceholders = [APP_NAME: "海貝"]
+            buildConfigField "String", "BASE_URL", rootProject.ext.url.localUrl
+            buildConfigField "boolean", "isProdDebug", "false"
+            applicationId "cn.xcion.habit"
+
+        }
+    }
+    /*************************************************************************************************/
+
+
+}
+
+dependencies {
+
+    implementation project(path: ':module_frame')
+
+
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+
+    implementation rootProject.ext.dependencies.constraintLayout
+    implementation rootProject.ext.dependencies.material
+    implementation rootProject.ext.dependencies.appcompat
+    implementation rootProject.ext.dependencies.cardview
+
+    implementation rootProject.ext.dependencies.butterknife
+    annotationProcessor rootProject.ext.dependencies.butterknifeCompiler
+    implementation rootProject.ext.dependencies.eventbus
+
+}

@@ -1,0 +1,4 @@
+include ':library_common'
+include ':module_frame'
+include ':app'
+rootProject.name = "Habit"
