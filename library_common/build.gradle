@@ -40,7 +40,28 @@ dependencies {
     implementation rootProject.ext.dependencies.appcompat
     implementation rootProject.ext.dependencies.cardview
 
-    implementation rootProject.ext.dependencies.butterknife
-    annotationProcessor rootProject.ext.dependencies.butterknifeCompiler
-    implementation rootProject.ext.dependencies.eventbus
+
+    /**********************************************************************************************/
+    implementation rootProject.ext.dependencies.okhttp
+    implementation rootProject.ext.dependencies.retrofit
+    implementation rootProject.ext.dependencies.converterGson
+    implementation rootProject.ext.dependencies.adapterRxjava
+
+    implementation rootProject.ext.dependencies.okhttp3Integration
+    implementation rootProject.ext.dependencies.glideTransformations
+    implementation rootProject.ext.dependencies.glide
+    implementation rootProject.ext.dependencies.gson
+
+    implementation rootProject.ext.dependencies.rxjava
+    implementation rootProject.ext.dependencies.rxandroid
+
+    // ViewModel and LiveData
+    implementation rootProject.ext.dependencies.lifecycleExtensions
+    implementation rootProject.ext.dependencies.lifecycleCommonJava8
+
+    //api rootProject.ext.dependencies["liveEventBus"]  //    基于livedata的事件通信,完爆EventBus
+    //崩溃捕获和重启框架
+    api 'cat.ereza:customactivityoncrash:2.3.0'
+    //共享参数
+    implementation rootProject.ext.dependencies.mmkv
 }

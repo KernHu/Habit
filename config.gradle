@@ -26,6 +26,7 @@ ext {
 
             roomVersion                  : "2.2.6",
             lifecycleExtensions          : "2.2.0",
+            lifecycleCommonJava8         : "2.2.0",
 
             okhttp                       : "3.4.1",
             retrofit                     : "2.1.0",
@@ -34,7 +35,7 @@ ext {
             glide                        : "3.7.0",
             okhttp3Integration           : "1.4.0@aar",
             glideTransformations         : "2.0.1",
-
+            gson                         : "2.8.5",
 
             commons                      : "0.9.0.1",
             materialloadingprogressbar   : "0.5.8-RELEASE",
@@ -58,6 +59,7 @@ ext {
             tinker                       : "1.9.6",
             tinkerSDk                    : "1.2.6",
             bugly                        : "2.8.6",
+            mmkv                         : "1.0.23"
     ]
 
 
@@ -74,6 +76,8 @@ ext {
             roomRuntime                  : "androidx.room:room-runtime:${versions.roomVersion}",
             roomCompiler                 : "androidx.room:room-compiler:${versions.roomVersion}",
             lifecycleExtensions          : "androidx.lifecycle:lifecycle-extensions:${versions.lifecycleExtensions}",
+            lifecycleCommonJava8         : "androidx.lifecycle:lifecycle-common-java8:${versions.lifecycleCommonJava8}",
+
             roomRxjava2                  : "androidx.room:room-rxjava2:${versions.roomVersion}",
 
             okhttp                       : "com.squareup.okhttp3:okhttp:${versions.okhttp}",
@@ -86,6 +90,7 @@ ext {
             glide                        : "com.github.bumptech.glide:glide:${versions.glide}",
             okhttp3Integration           : "com.github.bumptech.glide:okhttp3-integration:${versions.okhttp3Integration}",
             glideTransformations         : "jp.wasabeef:glide-transformations:${versions.glideTransformations}",
+            gson                         : "com.google.code.gson:gson:${versions.gson}",
 
             commons                      : "com.afollestad.material-dialogs:commons:${versions.commons}",
             materialloadingprogressbar   : "com.lsjwzh:materialloadingprogressbar:${versions.materialloadingprogressbar}",
@@ -111,5 +116,7 @@ ext {
             tinkerSDk                    : "com.tinkerpatch.sdk:tinkerpatch-android-sdk:${versions.tinkerSDk}",
             //bugly
             bugly                        : "com.tencent.bugly:crashreport:${versions.bugly}",
+
+            mmkv                         : "com.tencent:mmkv:${versions.mmkv}"
     ]
 }
