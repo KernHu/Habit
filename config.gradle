@@ -27,7 +27,9 @@ ext {
             roomVersion                  : "2.2.6",
             lifecycleExtensions          : "2.2.0",
             lifecycleCommonJava8         : "2.2.0",
+            rxbinding3                   : "3.0.0-alpha2",
 
+            loggingInterceptor           : "3.12.1",
             okhttp                       : "3.4.1",
             retrofit                     : "2.1.0",
             rxjava                       : "1.0.14",
@@ -78,12 +80,16 @@ ext {
             lifecycleExtensions          : "androidx.lifecycle:lifecycle-extensions:${versions.lifecycleExtensions}",
             lifecycleCommonJava8         : "androidx.lifecycle:lifecycle-common-java8:${versions.lifecycleCommonJava8}",
 
+            rxbinding3                   : "com.jakewharton.rxbinding3:rxbinding:",
+
             roomRxjava2                  : "androidx.room:room-rxjava2:${versions.roomVersion}",
+
 
             okhttp                       : "com.squareup.okhttp3:okhttp:${versions.okhttp}",
             retrofit                     : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
             converterGson                : "com.squareup.retrofit2:converter-gson:${versions.retrofit}",
             adapterRxjava                : "com.squareup.retrofit2:adapter-rxjava:${versions.retrofit}",
+            loggingInterceptor           : "com.squareup.okhttp3:logging-interceptor:${versions.loggingInterceptor}",
 
             rxjava                       : "io.reactivex:rxjava:${versions.rxjava}",
             rxandroid                    : "io.reactivex:rxandroid:${versions.rxandroid}",

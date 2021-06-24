@@ -1,3 +1,5 @@
+include ':demo'
+include ':mvvmhttp'
 include ':library_common'
 include ':module_frame'
 include ':app'
